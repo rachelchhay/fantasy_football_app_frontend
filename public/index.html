@@ -8,10 +8,162 @@
     <script type='text/javascript' src='app.js'></script>
     <title></title>
   </head>
-  <body ng-controller='mainController as ctrl'>
+  <body class="HolyGrail" ng-controller='mainController as ctrl'>
 
-    <h1>Fantasy Football Comparison Tool</h1>
+    <header>
+      <h1>Fantasy Football Comparison Tool</h1>
+    </header>
 
+    <div class="HolyGrail-body">
+      <main class="HolyGrail-content">
+        <h1>Data Chart? Image?</h1>
+      </main>
+
+      <!-- FORM 1 -->
+
+      <nav class="HolyGrail-nav">
+
+        <h3>Search for Player 1: </h3>
+        <form ng-submit="ctrl.searchPlayers()">
+          <label>Player Name:</label><input type="text" placeholder="Name" ng-model="ctrl.name"> <br>
+          <label>Position:</label>
+            <select ng-model="ctrl.position">
+              <option>RB</option>
+              <option>WR</option>
+              <option>QB</option>
+              <option>TE</option>
+              <option>K</option>
+            </select> <br>
+          <label>Team:</label>
+            <select ng-model="ctrl.team">
+              <option>Ari</option>
+              <option>Atl</option>
+              <option>Bal</option>
+              <option>Buf</option>
+              <option>Car</option>
+              <option>Chi</option>
+              <option>Cin</option>
+              <option>Cle</option>
+              <option>Dal</option>
+              <option>Den</option>
+              <option>Det</option>
+              <option>GB</option>
+              <option>Hou</option>
+              <option>Ind</option>
+              <option>Jax</option>
+              <option>KC</option>
+              <option>LAC</option>
+              <option>LAR</option>
+              <option>Mia</option>
+              <option>Min</option>
+              <option>NE</option>
+              <option>NO</option>
+              <option>NYG</option>
+              <option>NYJ</option>
+              <option>Oak</option>
+              <option>Phi</option>
+              <option>Pit</option>
+              <option>Sea</option>
+              <option>SF</option>
+              <option>TB</option>
+              <option>Ten</option>
+              <option>Wsh</option>
+            </select>
+
+            <br>
+          <input type="submit" value="Search">
+        </form>
+
+        <ul>
+          <li ng-repeat="player in ctrl.foundPlayer">
+            <h3>{{ player.name }}</h3>
+            <h3>{{ player.position }}</h3>
+            <h3>{{ player.team }}</h3>
+            <h3>{{ player.fantasy_points }}</h3>
+            <h3>{{ player.touchdowns }}</h3>
+            <h3>{{ player.yards }}</h3>
+
+          </li>
+        </ul>
+
+      </nav>
+
+  <!-- FORM 2 -->
+
+      <aside class="HolyGrail-ads">
+
+        <h3>Search for Player 2: </h3>
+        <form ng-submit="ctrl.searchPlayers2()">
+          <label>Player Name:</label><input type="text" placeholder="Name" ng-model="ctrl.name2"> <br>
+          <label>Position:</label>
+            <select ng-model="ctrl.position2">
+              <option>RB</option>
+              <option>WR</option>
+              <option>QB</option>
+              <option>TE</option>
+              <option>K</option>
+            </select> <br>
+          <label>Team:</label>
+            <select ng-model="ctrl.team2">
+              <option>Ari</option>
+              <option>Atl</option>
+              <option>Bal</option>
+              <option>Buf</option>
+              <option>Car</option>
+              <option>Chi</option>
+              <option>Cin</option>
+              <option>Cle</option>
+              <option>Dal</option>
+              <option>Den</option>
+              <option>Det</option>
+              <option>GB</option>
+              <option>Hou</option>
+              <option>Ind</option>
+              <option>Jax</option>
+              <option>KC</option>
+              <option>LAC</option>
+              <option>LAR</option>
+              <option>Mia</option>
+              <option>Min</option>
+              <option>NE</option>
+              <option>NO</option>
+              <option>NYG</option>
+              <option>NYJ</option>
+              <option>Oak</option>
+              <option>Phi</option>
+              <option>Pit</option>
+              <option>Sea</option>
+              <option>SF</option>
+              <option>TB</option>
+              <option>Ten</option>
+              <option>Wsh</option>
+            </select>
+
+            <br>
+          <input type="submit" value="Search">
+        </form>
+
+        <ul>
+          <li ng-repeat="player in ctrl.foundPlayer2">
+            <h3>{{ player.name }}</h3>
+            <h3>{{ player.position }}</h3>
+            <h3>{{ player.team }}</h3>
+            <h3>{{ player.fantasy_points }}</h3>
+            <h3>{{ player.touchdowns }}</h3>
+            <h3>{{ player.yards }}</h3>
+
+          </li>
+        </ul>
+
+    </aside>
+
+    <!-- End of HolyGrail-body div -->
+    </div>
+
+
+    <footer>
+      <small>Created By: Rachel Chhay and Mike Skelton</small>
+    </footer>
 
   </body>
 </html>
