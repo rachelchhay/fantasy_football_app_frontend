@@ -33,6 +33,15 @@
   order: -1;
 }
 
+.players li {
+  border: 1px solid black;
+  margin-top: 5px;
+}
+
+.players img {
+  padding: 1em;
+}
+
 header, footer {
   text-align: center;
   background-color: #6DBB75;
