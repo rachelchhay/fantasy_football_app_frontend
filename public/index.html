@@ -16,7 +16,7 @@
 
     <div class="HolyGrail-body">
       <main class="HolyGrail-content">
-        <h1>Data Chart? jsfdl;kfjsd;lf</h1>
+        <h1>Data Chart? </h1>
       </main>
 
       <!-- FORM 1 -->
@@ -27,47 +27,13 @@
         <form ng-submit="ctrl.searchPlayers()">
           <label>Player Name:</label><input type="search" placeholder="Name" ng-model="ctrl.name"> <br>
           <label>Position:</label>
-            <select ng-model="ctrl.position">
-              <option>RB</option>
-              <option>WR</option>
-              <option>QB</option>
-              <option>TE</option>
-              <option>K</option>
+            <select ng-model="positionFilter" data-ng-options="position.position as position.name for position in ctrl.positionArray">
+              <option value selected="selected">Show All</option>
             </select> <br>
           <label>Team:</label>
-            <select ng-model="ctrl.team">
-              <option>Ari</option>
-              <option>Atl</option>
-              <option>Bal</option>
-              <option>Buf</option>
-              <option>Car</option>
-              <option>Chi</option>
-              <option>Cin</option>
-              <option>Cle</option>
-              <option>Dal</option>
-              <option>Den</option>
-              <option>Det</option>
-              <option>GB</option>
-              <option>Hou</option>
-              <option>Ind</option>
-              <option>Jax</option>
-              <option>KC</option>
-              <option>LAC</option>
-              <option>LAR</option>
-              <option>Mia</option>
-              <option>Min</option>
-              <option>NE</option>
-              <option>NO</option>
-              <option>NYG</option>
-              <option>NYJ</option>
-              <option>Oak</option>
-              <option>Phi</option>
-              <option>Pit</option>
-              <option>Sea</option>
-              <option>SF</option>
-              <option>TB</option>
-              <option>Ten</option>
-              <option>Wsh</option>
+            <select ng-model="teamFilter" data-ng-options="team.team as team.name for team in ctrl.teamArray">
+              <option value selected="selected">Show All</option>
+
             </select>
 
             <br>
@@ -75,7 +41,7 @@
         </form>
 
         <ul class='players'>
-          <li ng-repeat="player in ctrl.foundPlayer">
+          <li data-ng-repeat="player in ctrl.foundPlayer | filter:(!!positionFilter || undefined) && {position: positionFilter} | filter:(!!teamFilter || undefined) && {team: teamFilter}">
             <img ng-src='{{ player.img }}'>
             <h3>{{ player.name }}</h3>
             <h3>{{ player.position }}</h3>
@@ -97,47 +63,14 @@
         <form ng-submit="ctrl.searchPlayers2()">
           <label>Player Name:</label><input type="text" placeholder="Name" ng-model="ctrl.name2"> <br>
           <label>Position:</label>
-            <select ng-model="ctrl.position2">
-              <option>RB</option>
-              <option>WR</option>
-              <option>QB</option>
-              <option>TE</option>
-              <option>K</option>
+            <select ng-model="position2Filter" data-ng-options="position.position as position.name for position in ctrl.position2Array">
+              <option value selected="selected">Show All</option>
+
             </select> <br>
           <label>Team:</label>
-            <select ng-model="ctrl.team2">
-              <option>Ari</option>
-              <option>Atl</option>
-              <option>Bal</option>
-              <option>Buf</option>
-              <option>Car</option>
-              <option>Chi</option>
-              <option>Cin</option>
-              <option>Cle</option>
-              <option>Dal</option>
-              <option>Den</option>
-              <option>Det</option>
-              <option>GB</option>
-              <option>Hou</option>
-              <option>Ind</option>
-              <option>Jax</option>
-              <option>KC</option>
-              <option>LAC</option>
-              <option>LAR</option>
-              <option>Mia</option>
-              <option>Min</option>
-              <option>NE</option>
-              <option>NO</option>
-              <option>NYG</option>
-              <option>NYJ</option>
-              <option>Oak</option>
-              <option>Phi</option>
-              <option>Pit</option>
-              <option>Sea</option>
-              <option>SF</option>
-              <option>TB</option>
-              <option>Ten</option>
-              <option>Wsh</option>
+            <select ng-model="team2Filter" data-ng-options="team.team as team.name for team in ctrl.team2Array">
+              <option value selected="selected">Show All</option>
+              
             </select>
 
             <br>
@@ -145,7 +78,7 @@
         </form>
 
         <ul class='players'>
-          <li ng-repeat="player in ctrl.foundPlayer2">
+          <li data-ng-repeat="player in ctrl.foundPlayer2 | filter:(!!position2Filter || undefined) && {position: position2Filter} | filter:(!!team2Filter || undefined) && {team: team2Filter}">
             <img ng-src='{{ player.img }}'>
             <h3>{{ player.name }}</h3>
             <h3>{{ player.position }}</h3>
