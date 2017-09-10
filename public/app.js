@@ -5,15 +5,98 @@ console.log('app')
 app.controller('mainController', ['$http',
 function($http) {
 
-  // this.players = [];
-  // this.users = [];
-  // this.rosters = [];
+  this.players = [];
+  this.users = [];
+  this.rosters = [];
+  this.URL = 'https://fantasy-football-tool-api.herokuapp.com/players';
+  this.URLii = 'http://localhost:3000/players/1';
+  this.positionArray = [
+    {position: 'RB', name: 'RB'},
+    {position: 'WR', name: 'WR'},
+    {position: 'TE', name: 'TE'},
+    {position: 'QB', name: 'QB'},
+  ];
+  this.teamArray = [
+    {team: 'Ari', name: 'Ari'},
+    {team: 'Atl', name: 'Atl'},
+    {team: 'Bal', name: 'Bal'},
+    {team: 'Buf', name: 'Buf'},
+    {team: 'Car', name: 'Car'},
+    {team: 'Chi', name: 'Chi'},
+    {team: 'Cin', name: 'Cin'},
+    {team: 'Cle', name: 'Cle'},
+    {team: 'Dal', name: 'Dal'},
+    {team: 'Den', name: 'Den'},
+    {team: 'Det', name: 'Det'},
+    {team: 'GB', name: 'GB'},
+    {team: 'Hou', name: 'Hou'},
+    {team: 'Ind', name: 'Ind'},
+    {team: 'Jax', name: 'Jax'},
+    {team: 'KC', name: 'KC'},
+    {team: 'LAC', name: 'LAC'},
+    {team: 'LAR', name: 'LAR'},
+    {team: 'Mia', name: 'Mia'},
+    {team: 'Min', name: 'Min'},
+    {team: 'NE', name: 'NE'},
+    {team: 'NO', name: 'NO'},
+    {team: 'NYG', name: 'NYG'},
+    {team: 'NYJ', name: 'NYJ'},
+    {team: 'Oak', name: 'Oak'},
+    {team: 'Phi', name: 'Phi'},
+    {team: 'Pit', name: 'Pit'},
+    {team: 'Sea', name: 'Sea'},
+    {team: 'SF', name: 'SF'},
+    {team: 'TB', name: 'TB'},
+    {team: 'Ten', name: 'Ten'},
+    {team: 'Wsh', name: 'Wsh'}
+  ];
+  this.position2Array = [
+    {position: 'RB', name: 'RB'},
+    {position: 'WR', name: 'WR'},
+    {position: 'TE', name: 'TE'},
+    {position: 'QB', name: 'QB'},
+  ];
+  this.team2Array = [
+    {team: 'Ari', name: 'Ari'},
+    {team: 'Atl', name: 'Atl'},
+    {team: 'Bal', name: 'Bal'},
+    {team: 'Buf', name: 'Buf'},
+    {team: 'Car', name: 'Car'},
+    {team: 'Chi', name: 'Chi'},
+    {team: 'Cin', name: 'Cin'},
+    {team: 'Cle', name: 'Cle'},
+    {team: 'Dal', name: 'Dal'},
+    {team: 'Den', name: 'Den'},
+    {team: 'Det', name: 'Det'},
+    {team: 'GB', name: 'GB'},
+    {team: 'Hou', name: 'Hou'},
+    {team: 'Ind', name: 'Ind'},
+    {team: 'Jax', name: 'Jax'},
+    {team: 'KC', name: 'KC'},
+    {team: 'LAC', name: 'LAC'},
+    {team: 'LAR', name: 'LAR'},
+    {team: 'Mia', name: 'Mia'},
+    {team: 'Min', name: 'Min'},
+    {team: 'NE', name: 'NE'},
+    {team: 'NO', name: 'NO'},
+    {team: 'NYG', name: 'NYG'},
+    {team: 'NYJ', name: 'NYJ'},
+    {team: 'Oak', name: 'Oak'},
+    {team: 'Phi', name: 'Phi'},
+    {team: 'Pit', name: 'Pit'},
+    {team: 'Sea', name: 'Sea'},
+    {team: 'SF', name: 'SF'},
+    {team: 'TB', name: 'TB'},
+    {team: 'Ten', name: 'Ten'},
+    {team: 'Wsh', name: 'Wsh'}
+  ];
+
 
 // SEARCH FORM FUNCTION- PLAYER 1
   this.searchPlayers = () => {
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/players',
+      url: this.URL,
       data: {
         name: this.name,
         position: this.position,
@@ -38,7 +121,7 @@ function($http) {
   this.searchPlayers2 = () => {
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/players',
+      url: this.URL,
       data: {
         name: this.name2,
         position: this.position2,
@@ -84,7 +167,7 @@ function($http) {
       ]
     };
 
-  fetch('http://localhost:3000/players/1')
+  fetch('https://fantasy-football-tool-api.herokuapp.com/players/1')
   .then(response => response.json())
   .then(json => {
       console.log(json);
@@ -134,7 +217,7 @@ this.comparePlayers2 = function() {
     ]
   };
 
-fetch('http://localhost:3000/players/2')
+fetch('https://fantasy-football-tool-api.herokuapp.com/players/1')
 .then(response => response.json())
 .then(json => {
     console.log(json);
