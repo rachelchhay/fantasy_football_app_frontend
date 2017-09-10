@@ -24,17 +24,6 @@ function($http) {
       (response) => {
         console.log('Player 1 found: ', response)
 
-        // for (var i = 0; i < response.data.length; i++) {
-        //   response.data[i].name,
-        //   response.data[i].position,
-        //   response.data[i].team,
-        //   response.data[i].fantasy_points,
-        //   response.data[i].touchdowns,
-        //   response.data[i].yards
-        //   // for (var i = 0; i < users.length; i++) {
-        //   //   users[i].name
-        //   // }
-        // }
         this.foundPlayer = response.data
         this.name = ''
         this.position = ''
@@ -61,17 +50,6 @@ function($http) {
       (response) => {
         console.log('Player 2 found: ', response)
 
-        // for (var i = 0; i < response.data.length; i++) {
-        //   response.data[i].name,
-        //   response.data[i].position,
-        //   response.data[i].team,
-        //   response.data[i].fantasy_points,
-        //   response.data[i].touchdowns,
-        //   response.data[i].yards
-        //   // for (var i = 0; i < users.length; i++) {
-        //   //   users[i].name
-        //   // }
-        // }
         this.foundPlayer2 = response.data
         this.name2 = ''
         this.position2 = ''
