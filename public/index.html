@@ -17,6 +17,12 @@
     <div class="HolyGrail-body">
       <main class="HolyGrail-content">
         <h1>Data Chart? Image?</h1>
+
+        <div id='charts'>
+          <canvas id='touchdowns' width='150' height='100'></canvas>
+          <canvas id='touchdowns2' width='150' height='100'></canvas>
+        </div>
+
       </main>
 
       <!-- FORM 1 -->
@@ -83,6 +89,10 @@
             <h3>{{ player.fantasy_points }}</h3>
             <h3>{{ player.touchdowns }}</h3>
             <h3>{{ player.yards }}</h3>
+
+            <form ng-submit="ctrl.comparePlayers1()">
+              <input type='submit' value='Compare'>
+            </form>
 
           </li>
         </ul>
@@ -153,6 +163,9 @@
             <h3>{{ player.fantasy_points }}</h3>
             <h3>{{ player.touchdowns }}</h3>
             <h3>{{ player.yards }}</h3>
+            <form ng-submit="ctrl.comparePlayers2()">
+              <input type='submit' value='Compare'>
+            </form>
 
           </li>
         </ul>
@@ -166,6 +179,6 @@
     <footer>
       <small>Created By: Rachel Chhay and Mike Skelton</small>
     </footer>
-    
+
   </body>
 </html>

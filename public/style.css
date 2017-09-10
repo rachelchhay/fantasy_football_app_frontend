@@ -39,7 +39,11 @@
 }
 
 .players img {
-  padding: 1em;
+  padding: .25em;
+}
+
+#charts {
+  display: inline;
 }
 
 header, footer {
