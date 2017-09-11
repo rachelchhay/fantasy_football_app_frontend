@@ -2,6 +2,11 @@
   border: 1px solid #1D7225;
 }*/
 
+body {
+  background-color: #DFDCE3;
+  font-family: 'Roboto Slab', serif;
+}
+
 .HolyGrail {
   display: flex;
   min-height: 100vh;
@@ -24,9 +29,12 @@
   /* 15em is the width of the columns */
   flex: 0 0 15em;
   padding: 1em;
-  line-height: 1.5em;
+  line-height: 2em;
 }
 
+.HolyGrail-content h1, .HolyGrail-nav h3, .HolyGrail-ads h3 {
+  text-align: center;
+}
 
 .HolyGrail-nav {
   /* put the nav on the left */
@@ -36,11 +44,13 @@
 .players li {
   border: 1px solid black;
   margin-top: 5px;
+  border-radius: 5px;
 }
 
 .players img {
   padding: .25em;
 }
+
 
 #charts {
   display: flex;
@@ -53,6 +63,16 @@ header, footer {
   color: #fff;
 }
 
+header {
+  background-image: url('https://previews.123rf.com/images/piyato/piyato1110/piyato111000286/10941937-turf-grass-background-Stock-Photo.jpg');
+  font-size: 25px;
+}
+
+header h1 {
+  background-color: rgba(109,187,117,0.9);
+}
+
+
 footer {
   font-style: italic;
 }
@@ -63,11 +83,57 @@ ul {
   text-align: center;
 }
 
+.search {
+  padding: 4px;
+  margin-top: 12px;
+  border: 2px solid #6DBB75;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  transition-duration: 0.4s;
+  font-size: 13px;
+}
+
+.compare {
+  padding: 3px;
+  margin-bottom: 12px;
+  border: 2px solid #6DBB75;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  transition-duration: 0.4s;
+  font-size: 12px;
+}
+
+.search:hover, .compare:hover {
+  cursor: pointer;
+  background-color: #6DBB75;
+}
+
+
+#charts {
+  display: flex;
+  width: 50%;
+}
+
 @media only screen and (max-width : 768px) {
 
   .HolyGrail-nav, .HolyGrail-ads {
     /* 12em is the width of the columns */
-    flex: 0 0 12em;
+    flex: 0 0 10em;
+    padding: 0.5em;
+  }
+
+  #charts {
+    display: inline-block;
+    width: 80%;
+  }
+
+  img {
+    height: 5em;
+    width: auto;
+  }
+
+  body {
+    font-size: 13px;
   }
 
 }

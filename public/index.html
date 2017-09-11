@@ -2,10 +2,13 @@
 <html ng-app="fantasy_football_app">
   <head>
     <meta charset="utf-8">
-    <link rel='stylesheet' type='text/css' href='style.css'>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script type='text/javascript' src='app.js'></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='style.css'>
     <title></title>
   </head>
   <body class="HolyGrail" ng-controller='mainController as ctrl'>
@@ -17,7 +20,7 @@
     <div class="HolyGrail-body">
       <main class="HolyGrail-content">
 
-        <h1>Data Chart? Image?</h1>
+        <h1>Comparison Charts</h1>
 
         <div id='charts'>
           <canvas id='touchdowns' width='150' height='100'></canvas>
@@ -45,7 +48,7 @@
             </select>
 
             <br>
-          <input type="submit" value="Search">
+          <input class="search" type="submit" value="Search">
         </form>
 
         <ul class='players'>
@@ -54,13 +57,13 @@
             <h3>{{ player.name }}</h3>
             <h3>{{ player.position }}</h3>
             <h3>{{ player.team }}</h3>
-            <h3>{{ player.fantasy_points }}</h3>
-            <h3>{{ player.touchdowns }}</h3>
-            <h3>{{ player.yards }}</h3>
+            <h3>Fantasy PTS: {{ player.fantasy_points }}</h3>
+            <h3>Total TDS: {{ player.touchdowns }}</h3>
+            <h3>Total YDS: {{ player.yards }}</h3>
 
 
             <form ng-submit="ctrl.comparePlayers1(player)">
-              <input type='submit' name='Compare'>
+              <input class="compare" type='submit' value='Compare'>
             </form>
 
           </li>
@@ -87,7 +90,7 @@
             </select>
 
             <br>
-          <input type="submit" value="Search">
+          <input class="search" type="submit" value="Search">
         </form>
 
         <ul class='players'>
@@ -96,11 +99,11 @@
             <h3>{{ player.name }}</h3>
             <h3>{{ player.position }}</h3>
             <h3>{{ player.team }}</h3>
-            <h3>{{ player.fantasy_points }}</h3>
-            <h3>{{ player.touchdowns }}</h3>
-            <h3>{{ player.yards }}</h3>
+            <h3>Fantasy PTS: {{ player.fantasy_points }}</h3>
+            <h3>Total TDS: {{ player.touchdowns }}</h3>
+            <h3>Total YDS: {{ player.yards }}</h3>
             <form ng-submit="ctrl.comparePlayers2(player)">
-              <input type='submit' value='Compare'>
+              <input class="compare" type='submit' value='Compare'>
             </form>
 
           </li>
