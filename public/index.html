@@ -58,8 +58,9 @@
             <h3>{{ player.touchdowns }}</h3>
             <h3>{{ player.yards }}</h3>
 
-            <form ng-submit="ctrl.comparePlayers1()">
-              <input type='submit' value='Compare'>
+
+            <form ng-submit="ctrl.comparePlayers1(player)">
+              <input type='submit' name='Compare'>
             </form>
 
           </li>
