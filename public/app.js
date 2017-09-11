@@ -162,22 +162,31 @@ function($http) {
       datasets: [
         {
           label: 'Touchdowns',
-          data: [this.player1.touchdowns]
+          data: [this.player1.touchdowns],
+          backgroundColor: '#2980B9'
         },
         {
           label: 'Fantasy Points/Week',
-          data: [(this.player1.fantasy_points/16)]
+          data: [(this.player1.fantasy_points/16)],
+          backgroundColor: '#F4D03F'
         },
         {
           label: 'Yards/Week',
-          data: [(this.player1.yards/16)]
+          data: [(this.player1.yards/16)],
+          backgroundColor: '#CB4335'
         }
       ]
     };
 
     const statsChart = new Chart(ctx, {
       type:'bar',
-      data: chartData
+      data: chartData,
+      options: {
+      title: {
+        display: true,
+        text: this.player1.name
+      }
+      }
     })
 
 // .catch(err => console.log(err));
@@ -187,32 +196,43 @@ this.comparePlayers2 = function(x) {
 
   console.log(x);
 
+  this.player2 = x;
+
 
   const ctx = document.querySelector('#touchdowns2');
 
   const chartData = {
 
-    labels: [],
+    labels: [this.player2.name],
 
     datasets: [
       {
         label: 'Touchdowns',
-        data: [this.player2.touchdowns]
+        data: [this.player2.touchdowns],
+        backgroundColor: '#2980B9'
       },
       {
         label: 'Fantasy Points',
-        data: [(this.player2.fantasy_points/16)]
+        data: [(this.player2.fantasy_points/16)],
+        backgroundColor: '#F4D03F'
       },
       {
         label: 'Yards',
-        data: [(this.player2.yards)]
+        data: [(this.player2.yards/16)],
+        backgroundColor: '#CB4335'
       }
     ]
   };
 
   const statsChart = new Chart(ctx, {
     type:'bar',
-    data: chartData
+    data: chartData,
+    options: {
+      title: {
+        display: true,
+        text: this.player2.name,
+      }
+    }
   })
 // .catch(err => console.log(err));
 }
