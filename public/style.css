@@ -2,6 +2,10 @@
   border: 1px solid #1D7225;
 }*/
 
+body {
+  background-color: #DFDCE3;
+}
+
 .HolyGrail {
   display: flex;
   min-height: 100vh;
@@ -42,13 +46,16 @@
   padding: .25em;
 }
 
-
-
 header, footer {
   text-align: center;
   background-color: #6DBB75;
   color: #fff;
 }
+
+header {
+  background-image: url('https://previews.123rf.com/images/piyato/piyato1110/piyato111000286/10941937-turf-grass-background-Stock-Photo.jpg');
+}
+
 
 footer {
   font-style: italic;
@@ -60,11 +67,27 @@ ul {
   text-align: center;
 }
 
+#charts {
+  display: flex;
+  width: 50%;
+}
+
 @media only screen and (max-width : 768px) {
 
   .HolyGrail-nav, .HolyGrail-ads {
     /* 12em is the width of the columns */
-    flex: 0 0 12em;
+    flex: 0 0 10em;
+    padding: 0.5em;
+  }
+
+  #charts {
+    display: inline-block;
+    width: 80%;
+  }
+
+  img {
+    height: 5em;
+    width: auto;
   }
 
 }

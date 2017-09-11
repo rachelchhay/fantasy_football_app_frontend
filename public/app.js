@@ -96,7 +96,7 @@ function($http) {
   this.searchPlayers = () => {
     $http({
       method: 'GET',
-      url: this.URLii,
+      url: this.URL,
       data: {
         name: this.name,
         position: this.position,
@@ -121,7 +121,7 @@ function($http) {
   this.searchPlayers2 = () => {
     $http({
       method: 'GET',
-      url: this.URLii,
+      url: this.URL,
       data: {
         name: this.name2,
         position: this.position2,
