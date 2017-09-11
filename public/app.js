@@ -9,7 +9,7 @@ function($http) {
   this.users = [];
   this.rosters = [];
   this.URL = 'https://fantasy-football-tool-api.herokuapp.com/players';
-  this.URLii = 'http://localhost:3000/players/1';
+  this.URLii = 'http://localhost:3000/players';
   this.positionArray = [
     {position: 'RB', name: 'RB'},
     {position: 'WR', name: 'WR'},
@@ -96,7 +96,7 @@ function($http) {
   this.searchPlayers = () => {
     $http({
       method: 'GET',
-      url: this.URL,
+      url: this.URLii,
       data: {
         name: this.name,
         position: this.position,
@@ -121,7 +121,7 @@ function($http) {
   this.searchPlayers2 = () => {
     $http({
       method: 'GET',
-      url: this.URL,
+      url: this.URLii,
       data: {
         name: this.name2,
         position: this.position2,
