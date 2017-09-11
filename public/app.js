@@ -8,8 +8,10 @@ function($http) {
   this.players = [];
   this.users = [];
   this.rosters = [];
+  this.player1 = {};
+  this.player2 = {};
   this.URL = 'https://fantasy-football-tool-api.herokuapp.com/players';
-  this.URLii = 'http://localhost:3000/players/1';
+  this.URLii = 'http://localhost:3000/players/';
   this.positionArray = [
     {position: 'RB', name: 'RB'},
     {position: 'WR', name: 'WR'},
@@ -104,7 +106,8 @@ function($http) {
       }
     }).then(
       (response) => {
-        console.log('Player 1 found: ', response)
+        console.log('Players on left side: ', response)
+        console.log(response.data)
 
         this.foundPlayer = response.data
         this.name = ''
@@ -130,7 +133,7 @@ function($http) {
 
     }).then(
       (response) => {
-        console.log('Player 2 found: ', response)
+        console.log('Players on the right side: ', response)
 
         this.foundPlayer2 = response.data
         this.name2 = ''
@@ -143,7 +146,12 @@ function($http) {
     )
   }
 
-  this.comparePlayers1 = function() {
+  this.comparePlayers1 = function(p) {
+
+    console.log(p);
+
+    this.player1 = p;
+    // console.log('Player grabbed: ' , this.player1)
 
     const ctx = document.querySelector('#touchdowns');
 
@@ -154,46 +162,31 @@ function($http) {
       datasets: [
         {
           label: 'Touchdowns',
-          data: []
+          data: [this.player1.touchdowns]
         },
         {
-          label: 'Fantasy Points',
-          data: []
+          label: 'Fantasy Points/Week',
+          data: [(this.player1.fantasy_points/16)]
         },
         {
-          label: 'Yards',
-          data: []
+          label: 'Yards/Week',
+          data: [(this.player1.yards/16)]
         }
       ]
     };
 
-  fetch('https://fantasy-football-tool-api.herokuapp.com/players/1')
-  .then(response => response.json())
-  .then(json => {
-      console.log(json);
-
-
-      const tds= json.touchdowns;
-      const points = json.fantasy_points;
-      const yards = json.yards;
-      console.log(tds);
-      console.log(points);
-
-      chartData.datasets[1].data.push(points);
-      chartData.datasets[0].data.push(tds);
-      chartData.datasets[2].data.push(yards)
-
-
-
-      const statsChart = new Chart(ctx, {
-        type:'bar',
-        data: chartData
-      })
+    const statsChart = new Chart(ctx, {
+      type:'bar',
+      data: chartData
     })
-  .catch(err => console.log(err));
+
+// .catch(err => console.log(err));
 }
 
-this.comparePlayers2 = function() {
+this.comparePlayers2 = function(x) {
+
+  console.log(x);
+
 
   const ctx = document.querySelector('#touchdowns2');
 
@@ -204,44 +197,44 @@ this.comparePlayers2 = function() {
     datasets: [
       {
         label: 'Touchdowns',
-        data: []
+        data: [this.player2.touchdowns]
       },
       {
         label: 'Fantasy Points',
-        data: []
+        data: [(this.player2.fantasy_points/16)]
       },
       {
         label: 'Yards',
-        data: []
+        data: [(this.player2.yards)]
       }
     ]
   };
 
-fetch('https://fantasy-football-tool-api.herokuapp.com/players/1')
-.then(response => response.json())
-.then(json => {
-    console.log(json);
-
-
-    const tds= json.touchdowns;
-    const points = json.fantasy_points;
-    const yards = json.yards;
-    console.log(tds);
-    console.log(points);
-
-    chartData.datasets[1].data.push(points);
-    chartData.datasets[0].data.push(tds);
-    chartData.datasets[2].data.push(yards)
-
-
-
-    const statsChart = new Chart(ctx, {
-      type:'bar',
-      data: chartData
-    })
+  const statsChart = new Chart(ctx, {
+    type:'bar',
+    data: chartData
   })
-.catch(err => console.log(err));
+// .catch(err => console.log(err));
 }
+
+    // const tds= json.touchdowns;
+    // const points = json.fantasy_points;
+    // const yards = json.yards;
+    // console.log(tds);
+    // console.log(points);
+    //
+    // chartData.datasets[1].data.push(points);
+    // chartData.datasets[0].data.push(tds);
+    // chartData.datasets[2].data.push(yards)
+
+
+//     const statsChart = new Chart(ctx, {
+//       type:'bar',
+//       data: chartData
+//     })
+//   })
+// .catch(err => console.log(err));
+// }
 
   // const statsChart = new Chart(ctx, {
   //   type:'line',
@@ -250,7 +243,34 @@ fetch('https://fantasy-football-tool-api.herokuapp.com/players/1')
   // .catch(err => console.log(err))
 // }
 
+// .then(response => response.json())
+// .then(json => {
+//     console.log(json);
 
+
+
+// Code graveyard for player comparisons
+
+    // const statsChart = new Chart(ctx, {
+    //   type:'line',
+    //   data: chartData
+    // })
+    // .catch(err => console.log(err))
+    // }
+
+    // .then(response => response.json())
+    // .then(json => {
+    //     console.log(json);
+
+    // const tds= json.touchdowns;
+    // const points = json.fantasy_points;
+    // const yards = json.yards;
+    // console.log(tds);
+    // console.log(points);
+
+    // chartData.datasets[1].data.push(points);
+    // chartData.datasets[0].data.push(tds);
+    // chartData.datasets[2].data.push(yards)
 
 
 
