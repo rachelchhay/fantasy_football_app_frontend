@@ -16,7 +16,15 @@
 
     <div class="HolyGrail-body">
       <main class="HolyGrail-content">
-        <h1>Data Chart? </h1>
+
+        <h1>Data Chart? Image?</h1>
+
+        <div id='charts'>
+          <canvas id='touchdowns' width='150' height='100'></canvas>
+          <canvas id='touchdowns2' width='150' height='100'></canvas>
+        </div>
+
+
       </main>
 
       <!-- FORM 1 -->
@@ -50,6 +58,10 @@
             <h3>{{ player.touchdowns }}</h3>
             <h3>{{ player.yards }}</h3>
 
+            <form ng-submit="ctrl.comparePlayers1()">
+              <input type='submit' value='Compare'>
+            </form>
+
           </li>
         </ul>
 
@@ -70,7 +82,7 @@
           <label>Team:</label>
             <select ng-model="team2Filter" data-ng-options="team.team as team.name for team in ctrl.team2Array">
               <option value selected="selected">Show All</option>
-              
+
             </select>
 
             <br>
@@ -86,6 +98,9 @@
             <h3>{{ player.fantasy_points }}</h3>
             <h3>{{ player.touchdowns }}</h3>
             <h3>{{ player.yards }}</h3>
+            <form ng-submit="ctrl.comparePlayers2()">
+              <input type='submit' value='Compare'>
+            </form>
 
           </li>
         </ul>

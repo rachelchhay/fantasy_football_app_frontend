@@ -39,8 +39,10 @@
 }
 
 .players img {
-  padding: 1em;
+  padding: .25em;
 }
+
+
 
 header, footer {
   text-align: center;
