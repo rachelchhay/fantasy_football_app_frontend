@@ -51,6 +51,12 @@ body {
   padding: .25em;
 }
 
+
+#charts {
+  display: flex;
+  width: 50%;
+}
+
 header, footer {
   text-align: center;
   background-color: #6DBB75;
