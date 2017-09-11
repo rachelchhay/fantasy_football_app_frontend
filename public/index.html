@@ -2,10 +2,13 @@
 <html ng-app="fantasy_football_app">
   <head>
     <meta charset="utf-8">
-    <link rel='stylesheet' type='text/css' href='style.css'>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script type='text/javascript' src='app.js'></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='style.css'>
     <title></title>
   </head>
   <body class="HolyGrail" ng-controller='mainController as ctrl'>
@@ -17,7 +20,7 @@
     <div class="HolyGrail-body">
       <main class="HolyGrail-content">
 
-        <h1>Data Chart? Image?</h1>
+        <h1>Comparison Charts</h1>
 
         <div id='charts'>
           <canvas id='touchdowns' width='150' height='100'></canvas>
@@ -45,7 +48,7 @@
             </select>
 
             <br>
-          <input type="submit" value="Search">
+          <input class="search" type="submit" value="Search">
         </form>
 
         <ul class='players'>
@@ -87,7 +90,7 @@
             </select>
 
             <br>
-          <input type="submit" value="Search">
+          <input class="search" type="submit" value="Search">
         </form>
 
         <ul class='players'>

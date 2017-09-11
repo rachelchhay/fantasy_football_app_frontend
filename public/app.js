@@ -11,11 +11,9 @@ function($http) {
   this.player1 = {};
   this.player2 = {};
   this.URL = 'https://fantasy-football-tool-api.herokuapp.com/players';
-<<<<<<< HEAD
+
   this.URLii = 'http://localhost:3000/players';
-=======
-  this.URLii = 'http://localhost:3000/players/';
->>>>>>> 7b338c06e76460ab08aae0251e7e83cb6f8bbd0a
+
   this.positionArray = [
     {position: 'RB', name: 'RB'},
     {position: 'WR', name: 'WR'},
