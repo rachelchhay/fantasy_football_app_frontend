@@ -57,13 +57,13 @@
             <h3>{{ player.name }}</h3>
             <h3>{{ player.position }}</h3>
             <h3>{{ player.team }}</h3>
-            <h3>{{ player.fantasy_points }}</h3>
-            <h3>{{ player.touchdowns }}</h3>
-            <h3>{{ player.yards }}</h3>
+            <h3>Fantasy PTS: {{ player.fantasy_points }}</h3>
+            <h3>Total TDS: {{ player.touchdowns }}</h3>
+            <h3>Total YDS: {{ player.yards }}</h3>
 
 
             <form ng-submit="ctrl.comparePlayers1(player)">
-              <input type='submit' name='Compare'>
+              <input class="compare" type='submit' value='Compare'>
             </form>
 
           </li>
@@ -99,11 +99,11 @@
             <h3>{{ player.name }}</h3>
             <h3>{{ player.position }}</h3>
             <h3>{{ player.team }}</h3>
-            <h3>{{ player.fantasy_points }}</h3>
-            <h3>{{ player.touchdowns }}</h3>
-            <h3>{{ player.yards }}</h3>
+            <h3>Fantasy PTS: {{ player.fantasy_points }}</h3>
+            <h3>Total TDS: {{ player.touchdowns }}</h3>
+            <h3>Total YDS: {{ player.yards }}</h3>
             <form ng-submit="ctrl.comparePlayers2(player)">
-              <input type='submit' value='Compare'>
+              <input class="compare" type='submit' value='Compare'>
             </form>
 
           </li>

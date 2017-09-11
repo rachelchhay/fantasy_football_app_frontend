@@ -90,13 +90,24 @@ ul {
   border-radius: 5px;
   font-family: 'Roboto Slab', serif;
   transition-duration: 0.4s;
-  font-size: 14px;
+  font-size: 13px;
 }
 
-.search:hover {
+.compare {
+  padding: 3px;
+  margin-bottom: 12px;
+  border: 2px solid #6DBB75;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  transition-duration: 0.4s;
+  font-size: 12px;
+}
+
+.search:hover, .compare:hover {
   cursor: pointer;
   background-color: #6DBB75;
 }
+
 
 #charts {
   display: flex;
