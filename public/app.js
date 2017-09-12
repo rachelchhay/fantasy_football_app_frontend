@@ -96,7 +96,7 @@ function($http) {
     {team: 'Wsh', name: 'Wsh'}
   ];
 
-  this.getUsers = () => {
+this.getUsers = () => {
       $http({
         method: 'GET',
         url: this.URLi,
@@ -107,6 +107,30 @@ function($http) {
         })
   .catch(err => console.log(err));
   }
+
+this.deleteUsers = () => {
+  $http({
+    method: 'DESTROY',
+    url: this.URLi,
+  }).then(
+    (response) => {
+      console.log('Users found: ', response)
+      this.deleteUser = response.data
+    })
+    .catch(err => console.log(err));
+}
+
+this.updateUsers = () => {
+  $http({
+    method: 'UPDATE',
+    url: this.URLi,
+  }).then(
+    (response) => {
+      console.log('Users found: ', response)
+      this.updateUser = response.data
+    })
+    .catch(err => console.log(err));
+}
 
 
 // SEARCH FORM FUNCTION- PLAYER 1
