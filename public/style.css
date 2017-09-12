@@ -44,7 +44,7 @@ body {
 }
 
 .players img {
-  padding: .25em;
+  width: 7.5em;
 }
 
 h4 {
@@ -133,10 +133,6 @@ footer {
     padding: 0.5em;
   }
 
-  #charts {
-    display: inline-block;
-    width: 80%;
-  }
 
   img {
     height: 5em;
