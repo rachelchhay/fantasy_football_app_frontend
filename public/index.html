@@ -138,15 +138,19 @@
 
     <ul ng-repeat='user in ctrl.foundUser'>
       <li>{{ user.name }}</li>
-      <li>{{user.id}}</li>
 
       <form ng-submit='ctrl.deleteUsers(user)'>
         <input type='submit' value='Delete User'>
       </form>
 
-      <form ng-submit='ctrl.updateUsers(user)'>
-        <input type='submit' value='Edit User'>
-      </form>
+      <input ng-click="ctrl.indexOfUser = $index; ctrl.openForm()" type='submit' value='Edit User'>
+
+      <div ng-hide="ctrl.hideForm">
+        <form ng-if="$index === ctrl.indexOfUser" ng-submit='ctrl.updateUsers(user)'>
+          <input type="text" placeholder="new username" ng-model="ctrl.updatedName">
+          <input type='submit' value='Submit'>
+        </form>
+      </div>
 
 
       <h4>Chosen players : </h4>

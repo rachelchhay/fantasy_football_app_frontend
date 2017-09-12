@@ -11,6 +11,7 @@ function($http) {
   this.player1 = {};
   this.player2 = {};
   this.user = {};
+  this.indexOfUser = 0;
   this.URL = 'https://fantasy-football-tool-api.herokuapp.com/players';
   this.URLi= 'https://fantasy-football-tool-api.herokuapp.com/users/';
 
@@ -97,52 +98,61 @@ function($http) {
     {team: 'Wsh', name: 'Wsh'}
   ];
 
+  this.hideForm = true;
 
-
-this.getUsers = () => {
-      $http({
-        method: 'GET',
-        url: this.URLi,
-      }).then(
-        (response) => {
-          console.log('Users found: ', response)
-          this.foundUser = response.data
-        })
-  .catch(err => console.log(err));
+  this.openForm = function(){
+    this.hideForm = false;
   }
 
-this.deleteUsers = (a) => {
 
-console.log(a);
-this.user = a;
-  $http({
-    method: 'DELETE',
-    url: 'http://localhost:3000/users/' + this.user.id,
-  }).then(
-    (response) => {
-      console.log('Users found: ', response)
-      this.deleteUser = response.data
-    })
+  this.getUsers = () => {
+        $http({
+          method: 'GET',
+          url: this.URLi,
+        }).then(
+          (response) => {
+            console.log('Users found: ', response)
+            this.foundUser = response.data
+          })
     .catch(err => console.log(err));
-}
-
-this.updateUsers = (a) => {
-
-  this.user = a;
-
-  $http({
-    method: 'PUT',
-    url: 'http://localhost:3000/users/' + this.user.id,
-    data: {
-      name: this.name,
     }
-  }).then(
-    (response) => {
-      console.log('Users found: ', response)
-      this.updateUser = response.data
-    })
-    .catch(err => console.log(err));
-}
+
+  this.deleteUsers = (a) => {
+
+  console.log(a);
+  this.user = a;
+    $http({
+      method: 'DELETE',
+      url: 'http://localhost:3000/users/' + this.user.id,
+    }).then(
+      (response) => {
+        console.log('User found to delete: ', response)
+        // this.deleteUser = response.data
+        this.getUsers();
+      })
+      .catch(err => console.log(err));
+  }
+
+  this.updateUsers = (a) => {
+
+    this.user = a;
+
+    $http({
+      method: 'PUT',
+      url: 'http://localhost:3000/users/' + this.user.id,
+      data: {
+        name: this.updatedName,
+      }
+    }).then(
+      (response) => {
+        console.log('Users found to update: ', response)
+        this.hideForm = true;
+        this.updatedName = '';
+        this.getUsers();
+
+      })
+      .catch(err => console.log(err));
+  }
 
 
 // SEARCH FORM FUNCTION- PLAYER 1
