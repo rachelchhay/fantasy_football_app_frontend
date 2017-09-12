@@ -146,7 +146,7 @@ function($http) {
       url: 'http://localhost:3000/users/' + this.user.id,
       // url: heroku_url_users + this.user.id
       data: {
-        name: this.updatedName,
+        name: this.updatedName
       }
     }).then(
       (response) => {
@@ -158,6 +158,22 @@ function($http) {
       .catch(err => console.log(err));
   }
 
+this.createUser = () => {
+
+  $http({
+    method: 'POST',
+    url: this.local_url_users,
+    // url: this.heroku_url_users,
+    data: {
+      name: this.newName
+    }
+  }).then(
+    (response) => {
+      console.log(response);
+      this.newName = '';
+    })
+    .catch(err => console.log(err));
+}
 
 // SEARCH FORM FUNCTION- PLAYER 1
   this.getPlayers = () => {
