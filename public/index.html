@@ -129,5 +129,16 @@
 
     </footer>
 
+    <form ng-submit='ctrl.getUsers()'>
+      <input class= 'See Users' type='submit' value='See Users'>
+    </form>
+
+    <ul ng-repeat='user in ctrl.foundUser'>
+      <li>{{  user.name }}</li>
+    </ul>
+
+
+
+
   </body>
 </html>

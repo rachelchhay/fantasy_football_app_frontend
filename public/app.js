@@ -11,6 +11,7 @@ function($http) {
   this.player1 = {};
   this.player2 = {};
   this.URL = 'https://fantasy-football-tool-api.herokuapp.com/players';
+  this.URLi= 'https://fantasy-football-tool-api.herokuapp.com/users';
 
   this.URLii = 'http://localhost:3000/players';
 
@@ -94,6 +95,18 @@ function($http) {
     {team: 'Ten', name: 'Ten'},
     {team: 'Wsh', name: 'Wsh'}
   ];
+
+  this.getUsers = () => {
+      $http({
+        method: 'GET',
+        url: this.URLi,
+      }).then(
+        (response) => {
+          console.log('Users found: ', response)
+          this.foundUser = response.data
+        })
+  .catch(err => console.log(err));
+  }
 
 
 // SEARCH FORM FUNCTION- PLAYER 1
@@ -243,8 +256,6 @@ this.comparePlayers2 = function(x) {
     }
   })
 
-
-// .catch(err => console.log(err));
 }
 
     // const tds= json.touchdowns;
