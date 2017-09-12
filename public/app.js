@@ -13,9 +13,11 @@ function($http) {
   this.user = {};
   this.indexOfUser = 0;
   this.URL = 'https://fantasy-football-tool-api.herokuapp.com/players';
-  this.URLi= 'https://fantasy-football-tool-api.herokuapp.com/users/';
+  this.heroku_url_users = 'https://fantasy-football-tool-api.herokuapp.com/users/';
 
-  this.URLii = 'http://localhost:3000/players';
+  this.local_url_players = 'http://localhost:3000/players';
+
+  this.local_url_users = 'http://localhost:3000/users';
 
   this.positionArray = [
     {position: 'RB', name: 'RB'},
@@ -108,7 +110,8 @@ function($http) {
   this.getUsers = () => {
         $http({
           method: 'GET',
-          url: this.URLi,
+          url: this.local_url_users
+          // url: this.heroku_url_users
         }).then(
           (response) => {
             console.log('Users found: ', response)
@@ -123,7 +126,8 @@ function($http) {
   this.user = a;
     $http({
       method: 'DELETE',
-      url: 'http://localhost:3000/users/' + this.user.id,
+      url: 'http://localhost:3000/users/' + this.user.id
+      // url: 'heroku_url_users' + this.user.id
     }).then(
       (response) => {
         console.log('User found to delete: ', response)
@@ -140,6 +144,7 @@ function($http) {
     $http({
       method: 'PUT',
       url: 'http://localhost:3000/users/' + this.user.id,
+      // url: 'heroku_url_users' + this.user.id
       data: {
         name: this.updatedName,
       }
@@ -149,7 +154,7 @@ function($http) {
         this.hideForm = true;
         this.updatedName = '';
         this.getUsers();
-
+        this.users.unshift(response.data);
       })
       .catch(err => console.log(err));
   }
