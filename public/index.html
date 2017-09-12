@@ -35,7 +35,7 @@
       <nav class="HolyGrail-nav">
 
         <h3>Search for Player 1: </h3>
-        <form ng-submit="ctrl.searchPlayers()">
+        <form ng-submit="ctrl.getPlayers()">
           <!-- <label>Player Name:</label><input type="search" placeholder="Name" ng-model="ctrl.name"> <br> -->
           <label>Position:</label>
             <select ng-model="positionFilter" data-ng-options="position.position as position.name for position in ctrl.positionArray">
@@ -80,7 +80,7 @@
       <aside class="HolyGrail-ads">
 
         <h3>Search for Player 2: </h3>
-        <form ng-submit="ctrl.searchPlayers2()">
+        <form ng-submit="ctrl.getPlayers2()">
           <!-- <label>Player Name:</label><input type="text" placeholder="Name" ng-model="ctrl.name2"> <br> -->
           <label>Position:</label>
             <select ng-model="position2Filter" data-ng-options="position.position as position.name for position in ctrl.position2Array">
@@ -126,14 +126,32 @@
 
     <footer>
       <small>Created By: Rachel Chhay and Mike Skelton</small>
+
     </footer>
 
     <form ng-submit='ctrl.getUsers()'>
-      <input class= 'See Users' type='submit' value='See Users'>
+      <input type='submit' value='See Users'>
     </form>
 
+
+
+
     <ul ng-repeat='user in ctrl.foundUser'>
-      <li>{{  user.name }}</li>
+      <li>{{ user.name }}</li>
+
+      <form ng-submit='ctrl.FUNCTION'>
+        <input type='submit' value='Delete User'>
+      </form>
+
+      <form ng-submit='ctrl.FUNCTION'>
+        <input type='submit' value='Edit User'>
+      </form>
+
+
+      <h4>Chosen players : </h4>
+      <ul ng-repeat="player in user.players">
+        <li>{{ player.name }}</li>
+      </ul>
     </ul>
 
 
