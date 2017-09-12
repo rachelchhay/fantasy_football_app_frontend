@@ -110,7 +110,7 @@
             <ul class="users-list" ng-repeat="user in player.users">
               <li>{{ user.name }}</li>
             </ul>
-            
+
             <form ng-submit="ctrl.comparePlayers2(player)">
               <input class="compare" type='submit' value='Compare'>
             </form>
@@ -127,6 +127,17 @@
     <footer>
       <small>Created By: Rachel Chhay and Mike Skelton</small>
     </footer>
+
+    <form ng-submit='ctrl.getUsers()'>
+      <input class= 'See Users' type='submit' value='See Users'>
+    </form>
+
+    <ul ng-repeat='user in ctrl.foundUser'>
+      <li>{{  user.name }}</li>
+    </ul>
+
+
+
 
   </body>
 </html>
