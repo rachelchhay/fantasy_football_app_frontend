@@ -109,7 +109,6 @@ function($http) {
     }).then(
       (response) => {
         console.log('Players on left side: ', response)
-        console.log(response.data)
 
         this.foundPlayer = response.data
         this.name = ''

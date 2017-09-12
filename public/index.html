@@ -36,7 +36,7 @@
 
         <h3>Search for Player 1: </h3>
         <form ng-submit="ctrl.searchPlayers()">
-          <label>Player Name:</label><input type="search" placeholder="Name" ng-model="ctrl.name"> <br>
+          <!-- <label>Player Name:</label><input type="search" placeholder="Name" ng-model="ctrl.name"> <br> -->
           <label>Position:</label>
             <select ng-model="positionFilter" data-ng-options="position.position as position.name for position in ctrl.positionArray">
               <option value selected="selected">Show All</option>
@@ -52,7 +52,7 @@
         </form>
 
         <ul class='players'>
-          <li data-ng-repeat="player in ctrl.foundPlayer | filter:(!!positionFilter || undefined) && {position: positionFilter} | filter:(!!teamFilter || undefined) && {team: teamFilter}">
+          <li class='players-list' data-ng-repeat="player in ctrl.foundPlayer | filter:(!!positionFilter || undefined) && {position: positionFilter} | filter:(!!teamFilter || undefined) && {team: teamFilter}">
             <img ng-src='{{ player.img }}'>
             <h3>{{ player.name }}</h3>
             <h3>{{ player.position }}</h3>
@@ -60,6 +60,10 @@
             <h3>Fantasy PTS: {{ player.fantasy_points }}</h3>
             <h3>Total TDS: {{ player.touchdowns }}</h3>
             <h3>Total YDS: {{ player.yards }}</h3>
+            <h4>Users who have started this player :</h4>
+            <ul class="users-list" ng-repeat="user in player.users">
+              <li>{{ user.name }}</li>
+            </ul>
 
 
             <form ng-submit="ctrl.comparePlayers1(player)">
@@ -77,7 +81,7 @@
 
         <h3>Search for Player 2: </h3>
         <form ng-submit="ctrl.searchPlayers2()">
-          <label>Player Name:</label><input type="text" placeholder="Name" ng-model="ctrl.name2"> <br>
+          <!-- <label>Player Name:</label><input type="text" placeholder="Name" ng-model="ctrl.name2"> <br> -->
           <label>Position:</label>
             <select ng-model="position2Filter" data-ng-options="position.position as position.name for position in ctrl.position2Array">
               <option value selected="selected">Show All</option>
@@ -94,7 +98,7 @@
         </form>
 
         <ul class='players'>
-          <li data-ng-repeat="player in ctrl.foundPlayer2 | filter:(!!position2Filter || undefined) && {position: position2Filter} | filter:(!!team2Filter || undefined) && {team: team2Filter}">
+          <li class='players-list' data-ng-repeat="player in ctrl.foundPlayer2 | filter:(!!position2Filter || undefined) && {position: position2Filter} | filter:(!!team2Filter || undefined) && {team: team2Filter}">
             <img ng-src='{{ player.img }}'>
             <h3>{{ player.name }}</h3>
             <h3>{{ player.position }}</h3>
@@ -102,6 +106,11 @@
             <h3>Fantasy PTS: {{ player.fantasy_points }}</h3>
             <h3>Total TDS: {{ player.touchdowns }}</h3>
             <h3>Total YDS: {{ player.yards }}</h3>
+            <h4>Users who have started this player :</h4>
+            <ul class="users-list" ng-repeat="user in player.users">
+              <li>{{ user.name }}</li>
+            </ul>
+            
             <form ng-submit="ctrl.comparePlayers2(player)">
               <input class="compare" type='submit' value='Compare'>
             </form>
