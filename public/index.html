@@ -138,12 +138,13 @@
 
     <ul ng-repeat='user in ctrl.foundUser'>
       <li>{{ user.name }}</li>
+      <li>{{user.id}}</li>
 
-      <form ng-submit='ctrl.FUNCTION'>
+      <form ng-submit='ctrl.deleteUsers(user)'>
         <input type='submit' value='Delete User'>
       </form>
 
-      <form ng-submit='ctrl.FUNCTION'>
+      <form ng-submit='ctrl.updateUsers(user)'>
         <input type='submit' value='Edit User'>
       </form>
 

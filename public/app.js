@@ -10,8 +10,9 @@ function($http) {
   this.rosters = [];
   this.player1 = {};
   this.player2 = {};
+  this.user = {};
   this.URL = 'https://fantasy-football-tool-api.herokuapp.com/players';
-  this.URLi= 'https://fantasy-football-tool-api.herokuapp.com/users';
+  this.URLi= 'https://fantasy-football-tool-api.herokuapp.com/users/';
 
   this.URLii = 'http://localhost:3000/players';
 
@@ -96,7 +97,9 @@ function($http) {
     {team: 'Wsh', name: 'Wsh'}
   ];
 
-  this.getUsers = () => {
+
+
+this.getUsers = () => {
       $http({
         method: 'GET',
         url: this.URLi,
@@ -107,6 +110,39 @@ function($http) {
         })
   .catch(err => console.log(err));
   }
+
+this.deleteUsers = (a) => {
+
+console.log(a);
+this.user = a;
+  $http({
+    method: 'DELETE',
+    url: 'http://localhost:3000/users/' + this.user.id,
+  }).then(
+    (response) => {
+      console.log('Users found: ', response)
+      this.deleteUser = response.data
+    })
+    .catch(err => console.log(err));
+}
+
+this.updateUsers = (a) => {
+
+  this.user = a;
+
+  $http({
+    method: 'PUT',
+    url: 'http://localhost:3000/users/' + this.user.id,
+    data: {
+      name: this.name,
+    }
+  }).then(
+    (response) => {
+      console.log('Users found: ', response)
+      this.updateUser = response.data
+    })
+    .catch(err => console.log(err));
+}
 
 
 // SEARCH FORM FUNCTION- PLAYER 1
