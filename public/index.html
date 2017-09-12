@@ -35,7 +35,7 @@
       <nav class="HolyGrail-nav">
 
         <h3>Search for Player 1: </h3>
-        <form ng-submit="ctrl.searchPlayers()">
+        <form ng-submit="ctrl.getPlayers()">
           <!-- <label>Player Name:</label><input type="search" placeholder="Name" ng-model="ctrl.name"> <br> -->
           <label>Position:</label>
             <select ng-model="positionFilter" data-ng-options="position.position as position.name for position in ctrl.positionArray">
@@ -80,7 +80,7 @@
       <aside class="HolyGrail-ads">
 
         <h3>Search for Player 2: </h3>
-        <form ng-submit="ctrl.searchPlayers2()">
+        <form ng-submit="ctrl.getPlayers2()">
           <!-- <label>Player Name:</label><input type="text" placeholder="Name" ng-model="ctrl.name2"> <br> -->
           <label>Position:</label>
             <select ng-model="position2Filter" data-ng-options="position.position as position.name for position in ctrl.position2Array">
@@ -110,7 +110,7 @@
             <ul class="users-list" ng-repeat="user in player.users">
               <li>{{ user.name }}</li>
             </ul>
-            
+
             <form ng-submit="ctrl.comparePlayers2(player)">
               <input class="compare" type='submit' value='Compare'>
             </form>
@@ -126,6 +126,7 @@
 
     <footer>
       <small>Created By: Rachel Chhay and Mike Skelton</small>
+
     </footer>
 
   </body>

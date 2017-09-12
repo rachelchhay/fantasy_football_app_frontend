@@ -97,7 +97,7 @@ function($http) {
 
 
 // SEARCH FORM FUNCTION- PLAYER 1
-  this.searchPlayers = () => {
+  this.getPlayers = () => {
     $http({
       method: 'GET',
       url: this.URL,
@@ -122,7 +122,7 @@ function($http) {
   }
 
   // SEARCH FORM FUNCTION- PLAYER 2
-  this.searchPlayers2 = () => {
+  this.getPlayers2 = () => {
     $http({
       method: 'GET',
       url: this.URL,
@@ -146,6 +146,7 @@ function($http) {
       }
     )
   }
+
 
   this.comparePlayers1 = function(p) {
 
