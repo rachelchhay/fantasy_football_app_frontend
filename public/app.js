@@ -149,9 +149,11 @@ function($http) {
 
   this.comparePlayers1 = function(p) {
 
-    console.log(p);
+    // console.log(q);
+    // console.log(q);
 
     this.player1 = p;
+    // this.player1a = q;
     // console.log('Player grabbed: ' , this.player1)
 
     const ctx = document.querySelector('#touchdowns');
@@ -185,7 +187,9 @@ function($http) {
       options: {
       title: {
         display: true,
-        text: this.player1.name
+        text: this.player1.name,
+        position: 'top',
+        fontSize: 16
       }
       }
     })
@@ -204,7 +208,7 @@ this.comparePlayers2 = function(x) {
 
   const chartData = {
 
-    labels: [this.player2.name],
+    labels: [],
 
     datasets: [
       {
@@ -213,12 +217,12 @@ this.comparePlayers2 = function(x) {
         backgroundColor: '#2980B9'
       },
       {
-        label: 'Fantasy Points',
+        label: 'Fantasy Points/Week',
         data: [(this.player2.fantasy_points/16)],
         backgroundColor: '#F4D03F'
       },
       {
-        label: 'Yards',
+        label: 'Yards/Week',
         data: [(this.player2.yards/16)],
         backgroundColor: '#CB4335'
       }
@@ -229,12 +233,16 @@ this.comparePlayers2 = function(x) {
     type:'bar',
     data: chartData,
     options: {
-      title: {
-        display: true,
-        text: this.player2.name,
-      }
+    title: {
+      display: true,
+      text: this.player2.name,
+      position: 'top',
+      fontSize: 16
+    }
     }
   })
+
+
 // .catch(err => console.log(err));
 }
 
