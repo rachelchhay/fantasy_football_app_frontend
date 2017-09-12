@@ -130,11 +130,28 @@
     </footer>
 
     <form ng-submit='ctrl.getUsers()'>
-      <input class= 'See Users' type='submit' value='See Users'>
+      <input type='submit' value='See Users'>
     </form>
 
+
+
+
     <ul ng-repeat='user in ctrl.foundUser'>
-      <li>{{  user.name }}</li>
+      <li>{{ user.name }}</li>
+
+      <form ng-submit='ctrl.FUNCTION'>
+        <input type='submit' value='Delete User'>
+      </form>
+
+      <form ng-submit='ctrl.FUNCTION'>
+        <input type='submit' value='Edit User'>
+      </form>
+
+
+      <h4>Chosen players : </h4>
+      <ul ng-repeat="player in user.players">
+        <li>{{ player.name }}</li>
+      </ul>
     </ul>
 
 
