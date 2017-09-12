@@ -133,11 +133,16 @@
       <input type='submit' value='See Users'>
     </form>
 
+    <form ng-submit='ctrl.createUser()'>
+      <input ng-model='ctrl.newName' type='text' placeholder='New Username'>
+      <input type='submit' value='Create User'>
+    </form>
+
 
 
 
     <ul ng-repeat='user in ctrl.foundUser'>
-      <li>{{ user.name }}</li>
+      <li class="user-name">{{ user.name }}</li>
 
       <form ng-submit='ctrl.deleteUsers(user)'>
         <input type='submit' value='Delete User'>
