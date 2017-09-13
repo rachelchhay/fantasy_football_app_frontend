@@ -67,7 +67,7 @@
 
 
             <form ng-submit="ctrl.comparePlayers1(player)">
-              <input class="compare" type='submit' value='Compare'>
+              <input class="compare-button" type='submit' value='Compare'>
             </form>
 
           </li>
@@ -112,7 +112,7 @@
             </ul>
 
             <form ng-submit="ctrl.comparePlayers2(player)">
-              <input class="compare" type='submit' value='Compare'>
+              <input class="compare-button" type='submit' value='Compare'>
             </form>
 
           </li>
@@ -129,14 +129,19 @@
 
     </footer>
 
-    <form ng-submit='ctrl.getUsers()'>
-      <input type='submit' value='See Users'>
-    </form>
+    <div class="users">
 
-    <form ng-submit='ctrl.createUser()'>
-      <input ng-model='ctrl.newName' type='text' placeholder='New Username'>
-      <input type='submit' value='Create User'>
-    </form>
+      <form ng-submit='ctrl.getUsers()'>
+        <input class="users-buttons" type='submit' value='See Users'>
+      </form>
+
+      <form ng-submit='ctrl.createUser()'>
+        <input ng-model='ctrl.newName' type='text' placeholder='New Username'>
+        <input class="users-buttons" type='submit' value='Create User'>
+      </form>
+
+    </div>
+
 
 
 

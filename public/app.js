@@ -110,8 +110,8 @@ function($http) {
   this.getUsers = () => {
         $http({
           method: 'GET',
-          url: this.local_url_users
-          // url: this.heroku_url_users
+          // url: this.local_url_users
+          url: this.heroku_url_users
         }).then(
           (response) => {
             console.log('Users found: ', response)
@@ -126,8 +126,8 @@ function($http) {
   this.user = a;
     $http({
       method: 'DELETE',
-      url: 'http://localhost:3000/users/' + this.user.id
-      // url: heroku_url_users + this.user.id
+      // url: 'http://localhost:3000/users/' + this.user.id
+      url: heroku_url_users + this.user.id
     }).then(
       (response) => {
         console.log('User found to delete: ', response)
@@ -143,8 +143,8 @@ function($http) {
 
     $http({
       method: 'PUT',
-      url: 'http://localhost:3000/users/' + this.user.id,
-      // url: heroku_url_users + this.user.id
+      // url: 'http://localhost:3000/users/' + this.user.id,
+      url: heroku_url_users + this.user.id
       data: {
         name: this.updatedName
       }
@@ -162,8 +162,8 @@ this.createUser = () => {
 
   $http({
     method: 'POST',
-    url: this.local_url_users,
-    // url: this.heroku_url_users,
+    // url: this.local_url_users,
+    url: this.heroku_url_users,
     data: {
       name: this.newName
     }
@@ -171,6 +171,7 @@ this.createUser = () => {
     (response) => {
       console.log(response);
       this.newName = '';
+      this.getUsers();
     })
     .catch(err => console.log(err));
 }
