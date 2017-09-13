@@ -127,7 +127,7 @@ function($http) {
     $http({
       method: 'DELETE',
       // url: 'http://localhost:3000/users/' + this.user.id
-      url: heroku_url_users + this.user.id
+      url: this.heroku_url_users + this.user.id
     }).then(
       (response) => {
         console.log('User found to delete: ', response)
@@ -144,7 +144,7 @@ function($http) {
     $http({
       method: 'PUT',
       // url: 'http://localhost:3000/users/' + this.user.id,
-      url: heroku_url_users + this.user.id,
+      url: this.heroku_url_users + this.user.id,
       data: {
         name: this.updatedName
       }
