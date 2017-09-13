@@ -148,7 +148,7 @@ footer {
 
 #charts {
   display: flex;
-  width: 50%;
+  width: 450px;
 }
 
 @media only screen and (max-width : 768px) {
