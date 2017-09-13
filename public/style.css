@@ -104,7 +104,7 @@ footer {
   font-size: 13px;
 }
 
-.compare {
+.compare-button {
   padding: 3px;
   margin-bottom: 12px;
   border: 2px solid #6DBB75;
@@ -114,7 +114,7 @@ footer {
   font-size: 12px;
 }
 
-.search:hover, .compare:hover {
+.search:hover, .compare-button:hover {
   cursor: pointer;
   background-color: #6DBB75;
 }
@@ -123,6 +123,26 @@ footer {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.users {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.users-buttons {
+  font-size: 11px;
+  border: 2px solid #6DBB75;
+  border-radius: 5px;
+  font-family: 'Roboto Slab', serif;
+  transition-duration: 0.4s;
+  margin-top: 10px;
+}
+
+.users-buttons:hover {
+  cursor: pointer;
+  background-color: #6DBB75;
+
 }
 
 
