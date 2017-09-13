@@ -144,7 +144,7 @@ function($http) {
     $http({
       method: 'PUT',
       // url: 'http://localhost:3000/users/' + this.user.id,
-      url: heroku_url_users + this.user.id
+      url: heroku_url_users + this.user.id,
       data: {
         name: this.updatedName
       }
