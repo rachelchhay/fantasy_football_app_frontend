@@ -159,6 +159,11 @@ footer {
     padding: 0.5em;
   }
 
+  #charts {
+    display: block;
+    width: 80%;
+  }
+
 
   img {
     height: 5em;
